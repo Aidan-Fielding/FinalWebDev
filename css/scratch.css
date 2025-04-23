@@ -1,0 +1,91 @@
+body {
+  font-family: Verdana, sans-serif;
+  background-color: #f0f4f8;
+  color: #2c3e50;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+/* Header */
+.header {
+  background-color: #003366;
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  font-size: 1rem;
+  margin-top: 0;
+}
+
+/* Main content box */
+.main {
+  width: 90%;
+  max-width: 800px;
+  margin: 1.5rem auto;
+  padding: 1rem;
+  background-color: white;
+}
+
+/* Section titles */
+.main h2 {
+  color: #005a87;
+  border-bottom: 1px solid #aad4f5;
+  padding-bottom: 0.25rem;
+  margin-top: 1.5rem;
+}
+
+/* Lists */
+ul, ol {
+  padding-left: 1.2rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Links */
+a {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+  background-color: #dce3ea;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* Navigation stuff */
+.nav-bar {
+  background-color: #003366;
+  padding: 1rem;
+  text-align: center;
+}
+
+.nav-bar a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: bold;
+}
+
+.nav-bar a:hover {
+  text-decoration: underline;
+}

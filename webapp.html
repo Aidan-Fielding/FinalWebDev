@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="NBA Player Quiz" />
+  <meta name="author" content="Aidan Fielding" />
+  <title>NBA Player Quiz - Aidan Fielding</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" />
+  <link href="css/styles.css" rel="stylesheet" />
+  <style>
+    .quiz-question {
+      margin-bottom: 40px;
+      padding: 20px;
+      background: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+    .quiz-question img {
+  max-width: 100%;
+  max-height: 350px;
+  height: auto;
+  display: block;
+  margin: 0 auto 15px auto;
+  object-fit: contain;
+
+    }
+    #result {
+      text-align: center;
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+    <div class="container px-4 px-lg-5">
+      <a class="navbar-brand" href="index.html">Aidan Fielding</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
+        Menu <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ms-auto py-4 py-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="resume.html">Résumé</a></li>
+          <li class="nav-item"><a class="nav-link active" href="webapp.html">Web App</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="masthead" style="background-image: url('assets/img/75th_year_nba.webp')">
+    <div class="container position-relative px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+          <div class="page-heading">
+            <h1>NBA Player Quiz</h1>
+            <span class="subheading">Can you guess all 5 players?</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Quiz Area -->
+  <main class="container px-4 px-lg-5 my-5">
+    <form id="quizForm" class="row justify-content-center">
+      <div class="col-lg-10" id="quizContainer">
+        <!-- Questions inserted here via JavaScript -->
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary mt-4">Submit Quiz</button>
+        <div id="result"></div>
+      </div>
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-top">
+    <div class="container px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item"><a href="#"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-twitter fa-stack-1x fa-inverse"></i></span></a></li>
+            <li class="list-inline-item"><a href="#"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i></span></a></li>
+            <li class="list-inline-item"><a href="#"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li>
+          </ul>
+          <div class="small text-center text-muted fst-italic">Copyright © 2025 Aidan Fielding</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS: Bootstrap + Quiz Logic -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const quizData = [
+      {
+        id: "q1",
+        image: "assets/img/lebron.jpg" ,
+        question: "Who is this player?",
+        correct: "LeBron James",
+        options: ["Kevin Durant", "Giannis Antetokounmpo", "Luka Dončić"]
+      },
+      {
+        id: "q2",
+        image: "assets/img/curry.jpg",
+        question: "Who is this player?",
+        correct: "Stephen Curry",
+        options: ["Seth Curry", "Chris Paul", "Ja Morant"]
+      },
+      {
+        id: "q3",
+        image: "assets/img/scottie.jpg",
+        question: "Who is this player?",
+        correct: "Scottie Barnes",
+        options: ["Kevin Durant", "Julius Randle", "Jalen Brunson"]
+      },
+      {
+        id: "q4",
+        image: "assets/img/kyle.jpg",
+        question: "Who is this player?",
+        correct: "Kyle Filipowski",
+        options: ["Lauri Markkanen", "Blake Griffin", "Livvy Dunne"]
+      },
+      {
+        id: "q5",
+        image: "assets/img/yuki.jpg",
+        question: "Who is this player?",
+        correct: "Yuki Kawamura",
+        options: ["Jameer Nelson", "Trey Burke", "Jeremy Lin"]
+      }
+    ];
+
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    function renderQuiz() {
+      const container = document.getElementById("quizContainer");
+      quizData.forEach((q, index) => {
+        const allOptions = shuffle([...q.options, q.correct]);
+        const qHtml = `
+          <div class="quiz-question">
+            <img src="${q.image}" alt="Player ${index + 1}">
+            <h5>${index + 1}. ${q.question}</h5>
+            ${allOptions.map((opt, i) => `
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="${q.id}" id="${q.id}_${i}" value="${opt}">
+                <label class="form-check-label" for="${q.id}_${i}">${opt}</label>
+              </div>
+            `).join('')}
+          </div>
+        `;
+        container.insertAdjacentHTML('beforeend', qHtml);
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderQuiz();
+      document.getElementById("quizForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        let score = 0;
+        quizData.forEach(q => {
+          const selected = document.querySelector(`input[name="${q.id}"]:checked`);
+          if (selected && selected.value === q.correct) score++;
+        });
+        document.getElementById("result").textContent = `You got ${score} out of 5 correct!`;
+      });
+    });
+  </script>
+</body>
+</html>
